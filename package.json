@@ -12,7 +12,11 @@
   "keywords": [
     "rendersql"
   ],
-
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elkin-garzon/renderSql"
+  },
+  "homepage": "https://github.com/elkin-garzon/renderSql",
   "author": "Elkin Garzón",
   "license": "MIT",
   "devDependencies": {
