@@ -1,6 +1,6 @@
 {
   "name": "rendersql",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Generar script sql de consultas a partir de envio de ciertos parametros",
   "main": "dist-node/index.js",
   "browser": "dist-browser/index.js",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/elkin-garzon/renderSql",
   "author": "Elkin Garzón",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
     "typescript": "^4.7.4"
   }
