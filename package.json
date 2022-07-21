@@ -8,7 +8,7 @@
 		"dist/**/*"
 	],
 	"scripts": {
-		"clean": "rm -rf lib",
+		"clean": "rm -rf dist",
 		"build": "npm run clean && tsc"
 	},
 	"ts-standard": {
