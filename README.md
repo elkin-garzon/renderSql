@@ -3,7 +3,7 @@ Una libreria para generar scripts sql
 
 ## Install
 ``` sh
-    npm i rendersql
+npm i rendersql
 ```
 
 ## Usage 
@@ -11,11 +11,22 @@ Import your proyect
 ```js
 import  Query  from 'rendersql';
 
-let table = new Array('table1');
+let table = new Array('users');
 let columns = new Array('id', 'name');
-let params = {}
+let params = {
+    size: '10',
+    page: '1'
+}
 
-new Query(table, columns, params)
+new Query(table, columns, params).renderSQl()
+```
+
+## Example return class Query
+```js
+{
+    "select": "SELECT id,nombre FROM  usuarios    LIMIT 0, 31",
+    "count": "SELECT count(*) as total FROM  usuarios"
+}
 ```
 
 ## Parameter table
