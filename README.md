@@ -7,15 +7,15 @@ Una libreria para generar scripts sql
 ```
 
 ## Usage 
-Import your priyect
+Import your proyect
 ```js
-    import  Query  from 'rendersql';
+import  Query  from 'rendersql';
 
-    let table = new Array('table1');
-    let columns = new Array('id', 'name');
-    let params = {}
+let table = new Array('table1');
+let columns = new Array('id', 'name');
+let params = {}
 
-    new Query(table, columns, params)
+new Query(table, columns, params)
 ```
 
 ## Parameter table
