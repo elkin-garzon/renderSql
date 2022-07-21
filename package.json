@@ -1,6 +1,6 @@
 {
 	"name": "rendersql",
-	"version": "0.0.12",
+	"version": "1.0.2",
 	"description": "Generar script sql de consultas a partir de envio de ciertos parametros",
 	"main": "dist/index.js",
 	"types": "dist/types/index.d.ts",
@@ -9,10 +9,7 @@
 	],
 	"scripts": {
 		"clean": "rm -rf lib",
-		"build": "npm run clean && tsc",
-		"build:watch": "npm run build -- -w",
-		"lint": "ts-standard",
-		"lint:fix": "ts-standard --fix"
+		"build": "npm run clean && tsc"
 	},
 	"ts-standard": {
 		"ignore": [
@@ -30,17 +27,8 @@
 	"homepage": "https://github.com/elkin-garzon/renderSql",
 	"author": "Elkin Garzón",
 	"license": "MIT",
-	"type": "commonjs",
 	"devDependencies": {
-		"@commitlint/cli": "^17.0.3",
-		"@commitlint/config-conventional": "^17.0.3",
-		"@commitlint/format": "^17.0.0",
 		"@types/node": "^18.0.6",
-		"ava": "^4.3.1",
-		"husky": "^8.0.1",
-		"nyc": "^15.1.0",
-		"standard-version": "^9.5.0",
-		"ts-standard": "^11.0.0",
 		"typescript": "^4.7.4"
 	}
 }
