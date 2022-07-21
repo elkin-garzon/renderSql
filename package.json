@@ -1,6 +1,6 @@
 {
 	"name": "rendersql",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "Generar script sql de consultas a partir de envio de ciertos parametros",
 	"main": "dist/index.js",
 	"types": "dist/types/index.d.ts",
