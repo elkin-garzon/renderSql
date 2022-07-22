@@ -27,7 +27,7 @@ export default class Query {
 
     renderSQl() {
         return {
-            select: `${this.select()} ${this.from()} ${this.where()} ${this.order()}  ${this.limit()}`,
+            select: `${this.select()} ${this.from()} ${this.where()} ${this.groupColumns()} ${this.order()}  ${this.limit()}`,
             count: `${this.count()}`
         }
     }
@@ -107,6 +107,12 @@ export default class Query {
         }
     }
 
+    groupColumns() {
+        if (this.params.groupColumn) {
+            return `GROUP BY ${this.params.groupColumn}`;
+        }
+    }
+    
     /**
      * conteo de registros
      */
