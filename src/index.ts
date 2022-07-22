@@ -87,8 +87,12 @@ export default class Query {
                 let iteration = this.params.filterCondition.length;
                 for (let i = 0; i < iteration; i++) {
                     where = `${where} ${this.params.filterColumn[i]} ${this.params.filterCondition[i]} ${this.params.fllterValue[i]}`;
-                    if (this.params.filterRelation) {
-                        if (this.params.filterRelation[i]) {
+                    if (this.params.filterRelation && !Array.isArray(this.params.filterRelation)) {
+                        if (i == 0) {
+                            where = `${where} ${this.params.filterRelation}`;
+                        }
+                    } else if (this.params.filterRelation && Array.isArray(this.params.filterRelation)) {
+                        if (this.params.filterRelation[i] != undefined) {
                             where = `${where} ${this.params.filterRelation[i]}`;
                         }
                     }
