@@ -51,7 +51,11 @@ export default class Query {
                 if (i == 0) {
                     from = `${from} ${this.table[i]}`
                 } else {
-                    from = `${from} INNER JOIN ${this.table[i]} ON ${this.table[0]}.id_${this.table[i]} = ${this.table[i]}.id`
+                    if (this.table.length > 2) {
+                        from = `${from} INNER JOIN ${this.table[i]} ON ${this.table[i-1]}.id_${this.table[i]} = ${this.table[i]}.id`
+                    } else {
+                        from = `${from} INNER JOIN ${this.table[i]} ON ${this.table[0]}.id_${this.table[i]} = ${this.table[i]}.id`
+                    }
                 }
             }
         }
@@ -110,9 +114,11 @@ export default class Query {
     groupColumns() {
         if (this.params.groupColumn) {
             return `GROUP BY ${this.params.groupColumn}`;
+        } else {
+            return '';
         }
     }
-    
+
     /**
      * conteo de registros
      */
