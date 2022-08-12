@@ -90,7 +90,7 @@ export default class Query {
             if (Array.isArray(this.params.filterCondition)) {
                 let iteration = this.params.filterCondition.length;
                 for (let i = 0; i < iteration; i++) {
-                    where = `${where} ${this.params.filterColumn[i]} ${this.params.filterCondition[i]} '${this.params.fllterValue[i]}'`;
+                    where = `${where} ${this.params.filterColumn[i]} ${this.params.filterCondition[i]} ${this.params.fllterValue[i]}`;
                     if (this.params.filterRelation && !Array.isArray(this.params.filterRelation)) {
                         if (i == 0) {
                             where = `${where} ${this.params.filterRelation}`;
@@ -103,7 +103,7 @@ export default class Query {
                 }
                 return where;
             } else {
-                where = `${where} ${this.params.filterColumn} ${this.params.filterCondition} '${this.params.fllterValue}'`;
+                where = `${where} ${this.params.filterColumn} ${this.params.filterCondition} ${this.params.fllterValue}`;
             }
             return where;
         } else {
