@@ -14,15 +14,19 @@ export default class Query {
      */
     public params: any;
 
+    public doubleJoin?: Boolean = false;
+
     //constructor
     constructor(
         table: Array<String>,
         columns: Array<String>,
-        params: any
+        params: any,
+        doubleJoin?: boolean
     ) {
         this.table = table;
         this.columns = columns;
-        this.params = params
+        this.params = params;
+        this.doubleJoin = doubleJoin;
     }
 
     renderSQl() {
@@ -51,10 +55,18 @@ export default class Query {
                 if (i == 0) {
                     from = `${from} ${this.table[i]}`
                 } else {
-                    if (this.table.length > 2) {
-                        from = `${from} INNER JOIN ${this.table[i]} ON ${this.table[i-1]}.id_${this.table[i]} = ${this.table[i]}.id`
+                    if (!this.doubleJoin) {
+                        if (this.table.length > 2) {
+                            from = `${from} INNER JOIN ${this.table[i]} ON ${this.table[0]}.id_${this.table[i]} = ${this.table[i]}.id`
+                        } else {
+                            from = `${from} INNER JOIN ${this.table[i]} ON ${this.table[0]}.id_${this.table[i]} = ${this.table[i]}.id`
+                        }
                     } else {
-                        from = `${from} INNER JOIN ${this.table[i]} ON ${this.table[0]}.id_${this.table[i]} = ${this.table[i]}.id`
+                        if (this.table.length > 2) {
+                            from = `${from} INNER JOIN ${this.table[i]} ON ${this.table[i - 1]}.id_${this.table[i]} = ${this.table[i]}.id`
+                        } else {
+                            from = `${from} INNER JOIN ${this.table[i]} ON ${this.table[0]}.id_${this.table[i]} = ${this.table[i]}.id`
+                        }
                     }
                 }
             }
